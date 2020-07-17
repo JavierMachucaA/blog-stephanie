@@ -161,7 +161,8 @@
             "aot": true,
             "assets": [
               "projects/blog-stephanie/src/favicon.ico",
-              "projects/blog-stephanie/src/assets"
+              "projects/blog-stephanie/src/assets",
+              "projects/blog-stephanie/src/assets/svg/*"
             ],
             "styles": [
               "projects/blog-stephanie/src/styles.css",
