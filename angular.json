@@ -165,7 +165,7 @@
               "projects/blog-stephanie/src/assets/svg/*"
             ],
             "styles": [
-              "projects/blog-stephanie/src/styles.css",
+              "projects/blog-stephanie/src/styles.scss",
               "projects/blog-stephanie/src/assets/css/nucleo-icons.css",
               "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "projects/blog-stephanie/src/assets/scss/blk-design-system.scss",
@@ -265,5 +265,10 @@
   "defaultProject": "blog-stephanie",
   "cli": {
     "analytics": false
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
   }
 }

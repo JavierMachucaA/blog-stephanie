@@ -3,7 +3,7 @@
   color-on-scroll="100"
   id="navbar-top"
 >
-  <div class="container">
+  <div class="container quit-margin">
     <div class="navbar-translate">
       <a
         class="navbar-brand"
@@ -95,34 +95,25 @@
             dropdownToggle
             href="javascript:void(0)"
           >
-            <i class="fa fa-cogs d-lg-none d-xl-none"> </i> Getting started
+            <i class="fa fa-cogs d-lg-none d-xl-none"> </i> Más Información
           </a>
           <div class="dropdown-menu dropdown-with-icons" *dropdownMenu>
             <a
               class="dropdown-item"
-              href="https://demos.creative-tim.com/blk-design-system-angular/#/documentation/overview"
+              (click)="navigate('contact')"
             >
-              <i class="tim-icons icon-paper"> </i> Documentation
+              <i class="tim-icons icon-paper"> </i> ¿Quien Soy?
             </a>
             <a class="dropdown-item" [routerLink]="['/register']">
-              <i class="tim-icons icon-bullet-list-67"> </i> Register Page
+              <i class="tim-icons icon-bullet-list-67"> </i> ¡Mi Blog!
             </a>
             <a class="dropdown-item" [routerLink]="['/landing']">
-              <i class="tim-icons icon-image-02"> </i> Landing Page
+              <i class="tim-icons icon-image-02"> </i> Contacto
             </a>
-            <a class="dropdown-item" [routerLink]="['/profile']">
+            <!--<a class="dropdown-item" [routerLink]="['/profile']">
               <i class="tim-icons icon-single-02"> </i> Profile Page
-            </a>
+            </a>-->
           </div>
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link btn btn-default d-none d-lg-block"
-            href="javascript:void(0)"
-            (click)="scrollToDownload()"
-          >
-            <i class="tim-icons icon-cloud-download-93"> </i> Download
-          </a>
         </li>
       </ul>
     </div>

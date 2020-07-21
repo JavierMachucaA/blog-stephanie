@@ -24,7 +24,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     CollapseModule,
     FormsModule,
     RouterModule,
-    BsDropdownModule.forRoot(),
+    // BsDropdownModule.forRoot(),
     ProgressbarModule.forRoot(),
     TooltipModule.forRoot(),
     PopoverModule.forRoot(),

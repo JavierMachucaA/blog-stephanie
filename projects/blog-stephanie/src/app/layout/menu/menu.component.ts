@@ -8,9 +8,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 export class MenuComponent implements OnInit, OnDestroy {
   isCollapsed = true;
   constructor() {}
-  scrollToDownload(element?: any) {
-    // element.scrollIntoView({ behavior: "smooth" });
-    // mover a footer
+  public navigate(route: string) {
+    const element = document.getElementById(route);
+    element.scrollIntoView({behavior: 'smooth'});
   }
   ngOnInit() {
     var body = document.getElementsByTagName("body")[0];
