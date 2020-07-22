@@ -100,20 +100,28 @@
           <div class="dropdown-menu dropdown-with-icons" *dropdownMenu>
             <a
               class="dropdown-item"
-              (click)="navigate('contact')"
+              (click)="navigate('blog')"
             >
-              <i class="tim-icons icon-paper"> </i> ¿Quien Soy?
+              <i class="tim-icons icon-paper"> </i> ¡Mi Blog!
             </a>
-            <a class="dropdown-item" [routerLink]="['/register']">
-              <i class="tim-icons icon-bullet-list-67"> </i> ¡Mi Blog!
+            <a class="dropdown-item" (click)="navigate('me')">
+              <i class="tim-icons icon-bullet-list-67"> </i> ¿Quien Soy?
             </a>
-            <a class="dropdown-item" [routerLink]="['/landing']">
+            <a class="dropdown-item" (click)="navigate('contact')">
               <i class="tim-icons icon-image-02"> </i> Contacto
             </a>
             <!--<a class="dropdown-item" [routerLink]="['/profile']">
               <i class="tim-icons icon-single-02"> </i> Profile Page
             </a>-->
           </div>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link btn btn-default d-none d-lg-block"
+            [routerLink]="['/login']"
+          >
+            <i class="tim-icons icon-lock-circle"> </i> Login
+          </a>
         </li>
       </ul>
     </div>

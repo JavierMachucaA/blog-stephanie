@@ -6,3 +6,15 @@
     font-weight: normal;
     font-style: normal;
 }
+
+.login {
+    overflow-x: hidden !important;
+  
+    .page-header {
+      min-height: 550px !important;
+  
+      .container {
+        padding-top: 60vh !important ;
+      }
+    }
+}

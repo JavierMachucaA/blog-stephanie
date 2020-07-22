@@ -12,12 +12,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HomeComponent } from './components/home/home.component';
+import { BlogComponent } from './components/blog/blog.component';
+import { LoginComponent } from './compontents/login/login.component';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    HomeComponent
+    HomeComponent,
+    BlogComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -25,11 +32,14 @@ import { HomeComponent } from './components/home/home.component';
     SharedModule,
     BrowserAnimationsModule,
     BsDropdownModule.forRoot(),
+    TabsModule.forRoot(),
+    PaginationModule.forRoot(),
+    CarouselModule.forRoot(),
+    CollapseModule.forRoot(),
     FormsModule,
     HttpClientModule,
     RouterModule,
     AppRoutingModule,
-    CollapseModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

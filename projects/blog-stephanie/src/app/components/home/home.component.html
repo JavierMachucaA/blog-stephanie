@@ -1,16 +1,36 @@
-<div #landing>
+<div class="page-header">
+<div class="content-center" #landing>
     <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <p>  </p>
+    <div
+      class="row row-grid justify-content-between align-items-center text-left"
+    >
+      <div class="col-lg-8 col-md-8">
+        <h1 class="text-white">
+          ¡ Mi Blog ! 
+        </h1>
+        <p class="text-white mb-3">
+          Aqui podrás encontrar recetas, guias nutritivas y muchos otros articulos que podrían interesarte...
+        </p>
+        <div class="btn-wrapper mb-3">
+        <a class="btn btn-success btn-link btn-sm"
+        [routerLink]="['/blog']"><p class="category text-success d-inline mr-1">Ir al contenido</p>
+          >
+            <i class="tim-icons icon-minimal-right"> </i>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-5">
+        <img id="recipe"
+          alt="Circle image"
+          class="img-fluid"
+          src="assets/img/principal/png/recipe.png"
+        />
+      </div>
+    </div>
+</div>  
 </div>
 <div id="site">
-    <p>site!</p>    
+    <p>site!</p>
     <br>
     <br>
     <br>
@@ -21,7 +41,7 @@
     <br>
 </div>
 <div id="me">
-    <p>me!</p>    
+    <p>me!</p>
     <br>
     <br>
     <br>
@@ -33,7 +53,7 @@
 </div>
 
 <div id="contact">
-    <p>contact!</p>    
+    <p>contact!</p>
     <br>
     <br>
     <br>
@@ -43,6 +63,3 @@
     <br>
     <br>
 </div>
-
-
-
