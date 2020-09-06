@@ -1,4 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { UserSessionDto } from '../../commons/dto/user-session.dto';
+import { AuthenticationService } from '../../services/authservice.service';
+import { Subscription } from 'rxjs';
+import { ShareService } from '../../services/share.service';
+import { error } from 'protractor';
 
 @Component({
   selector: 'menu',
@@ -6,8 +11,18 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit, OnDestroy {
-  isCollapsed = true;
-  constructor() {}
+  public isCollapsed = true;
+  public sesionUp :UserSessionDto ;
+  public currentUserSubscription: Subscription;
+  
+  constructor(private _authservice: AuthenticationService,
+              private _sharedService : ShareService) {
+    this._authservice.currentUser.subscribe(
+      (s) => this.sesionUp = s,
+      (error) => console.error(error)  
+    );
+  }
+
   public navigate(route: string) {
     const element = document.getElementById(route);
     element.scrollIntoView({behavior: 'smooth'});
@@ -114,6 +129,14 @@ export class MenuComponent implements OnInit, OnDestroy {
       }
     });*/
   }
+  public captureSession () {
+    this._authservice.currentUser.subscribe(
+      (s) => this.sesionUp = s,
+      (error) => console.error(error)      
+    );
+    console.log('this.sesionUp', this.sesionUp);
+  }
+
   ngOnDestroy() {
     var body = document.getElementsByTagName("body")[0];
     body.classList.remove("landing-page");

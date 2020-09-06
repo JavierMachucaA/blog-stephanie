@@ -171,8 +171,8 @@
               "projects/blog-stephanie/src/assets/scss/blk-design-system.scss",
               "projects/blog-stephanie/src/assets/demo/demo.css"
             ],
-            "scripts": [],
-            "es5BrowserSupport": true
+            "scripts": []
+            
           },
           "configurations": {
             "production": {
