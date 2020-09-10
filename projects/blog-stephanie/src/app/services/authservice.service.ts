@@ -22,8 +22,17 @@ export class AuthenticationService {
   public readonly APIKEY = '662313462599-ml46rq28kf5c5kpnv8iqjijjq08ipjen.apps.googleusercontent.com';
 
   constructor(private http: HttpClient, private _storageService: LocalStorageService, private _jwtHelper: JwtHelperService) {
+    let userBean : UserSessionDto;
     this.currentUserSubject = new BehaviorSubject<UserSessionDto>(this.userSesion);
     this.currentUser = this.currentUserSubject.asObservable();
+    if (localStorage.getItem('user')) {
+      userBean = JSON.parse(localStorage.getItem('user'));
+    }
+    if (userBean) {
+      this.currentUserSubject.next(userBean);
+      const token = userBean.token;
+      localStorage.setItem('token',token);
+    }
   }
   
   async ngOnInit() {
@@ -69,6 +78,7 @@ export class AuthenticationService {
       const token = 'tokentest'
       let userBean = new UserSessionDto(token, user, null, null, false, null);  
       //this.userSesion = userBean;
+      localStorage.setItem('user',JSON.stringify(userBean));
       this.currentUserSubject.next(userBean);
       localStorage.setItem('token',token);
     }
@@ -76,8 +86,11 @@ export class AuthenticationService {
   }
   captureUser(user: gapi.auth2.GoogleUser): any {
     const userBasic = user.getBasicProfile();
-    localStorage.setItem('token',user.getAuthResponse().access_token);
+    const authResponse  = user.getAuthResponse();
+    const token = authResponse.id_token;
     let userBean = new UserSessionDto(user.getAuthResponse().access_token,userBasic.getEmail(),userBasic.getName(),userBasic.getFamilyName(),true,userBasic.getImageUrl());
+    localStorage.setItem('token',token);
+    localStorage.setItem('user',JSON.stringify(userBean));
     this.currentUserSubject.next(userBean);
     console.log(userBean);
     
@@ -85,7 +98,7 @@ export class AuthenticationService {
 
   public async checkIfUserAuthenticated(): Promise<boolean> {
     // mejorar despues el manejo de session
-    if (localStorage.getItem('token')){
+    if (localStorage.getItem('user')){
       return true;
     }
     // Initialize gapi if not done yet

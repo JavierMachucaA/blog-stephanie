@@ -4,6 +4,7 @@ import { AuthenticationService } from '../../services/authservice.service';
 import { Subscription } from 'rxjs';
 import { ShareService } from '../../services/share.service';
 import { error } from 'protractor';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'menu',
@@ -16,16 +17,20 @@ export class MenuComponent implements OnInit, OnDestroy {
   public currentUserSubscription: Subscription;
   
   constructor(private _authservice: AuthenticationService,
-              private _sharedService : ShareService) {
+              private _routeService : Router,
+              ) {
     this._authservice.currentUser.subscribe(
       (s) => this.sesionUp = s,
       (error) => console.error(error)  
     );
   }
 
-  public navigate(route: string) {
-    const element = document.getElementById(route);
-    element.scrollIntoView({behavior: 'smooth'});
+  public navigate(route: string[]) {
+    console.log('route: ',route);
+    
+    this._routeService.navigate(route);
+    // const element = document.getElementById(route);
+    // element.scrollIntoView({behavior: 'smooth'});
   }
   ngOnInit() {
     var body = document.getElementsByTagName("body")[0];

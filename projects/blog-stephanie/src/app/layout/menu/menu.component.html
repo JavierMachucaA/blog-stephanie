@@ -100,7 +100,7 @@
           <div class="dropdown-menu dropdown-with-icons" *dropdownMenu>
             <a
               class="dropdown-item"
-              (click)="navigate('blog')"
+              (click)="navigate(['blog'])"
             >
               <i class="tim-icons icon-paper"> </i> ¡Mi Blog!
             </a>
@@ -110,9 +110,11 @@
             <a class="dropdown-item" (click)="navigate('contact')">
               <i class="tim-icons icon-image-02"> </i> Contacto
             </a>
-            <!--<a class="dropdown-item" [routerLink]="['/profile']">
-              <i class="tim-icons icon-single-02"> </i> Profile Page
-            </a>-->
+            <a  *ngIf="sesionUp" class="line" >
+            </a>
+            <a  *ngIf="sesionUp" class="dropdown-item" (click)="navigate(['admin','sections'])">
+              <i class="tim-icons icon-single-02"> </i> Administrar Blog
+            </a>
           </div>
         </li>
         <li *ngIf="!sesionUp" class="nav-item">

@@ -13,18 +13,21 @@ import { RouterModule } from '@angular/router';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 // import { HomeComponent } from './components/home/home.component';
 // import { BlogComponent } from './components/blog/blog.component';
-import { LoginComponent } from './compontents/login/login.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import {NgxLocalStorageModule} from 'ngx-localstorage';
-import { HomeComponent } from './compontents/home/home.component';
-import { BlogComponent } from './compontents/blog/blog.component';
+
 import { AuthenticationService } from './services/authservice.service';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
+import { AdminBlogComponent } from './components/admin/admin-blog/admin-blog.component';
+import { HomeComponent } from './components/home/home.component';
+import { BlogComponent } from './components/blog/blog.component';
+import { LoginComponent } from './components/login/login.component';
+import { AdminModule } from './components/admin/admin.module';
 
 export function getToken(): string {
-  let a = JSON.parse(localStorage.getItem('session')) ;
+  let a = JSON.parse(localStorage.getItem('token')) ;
   return a ? a.token : null;
 }
 
@@ -34,9 +37,12 @@ export function getToken(): string {
     MenuComponent,
     HomeComponent,
     BlogComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
+    // administrative module
+    AdminModule, 
+    
     BrowserModule,
     AppRoutingModule,
     SharedModule,
