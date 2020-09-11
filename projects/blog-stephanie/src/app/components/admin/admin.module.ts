@@ -5,10 +5,19 @@ import { PublicationsComponent } from './publications/publications.component';
 import { OthersComponent } from './others/others.component';
 import { AdminRoutingModule } from './admin-routes';
 import { AdminBlogComponent } from './admin-blog/admin-blog.component';
+import { InformationComponent } from './information/information.component';
+import { UsersComponent } from './users/users.component';
 
 
 @NgModule({
-  declarations: [AdminBlogComponent,SectionsComponent, PublicationsComponent, OthersComponent],
+  declarations: [
+    AdminBlogComponent, 
+    SectionsComponent, 
+    PublicationsComponent, 
+    OthersComponent, 
+    UsersComponent, 
+    InformationComponent
+  ],
   imports: [
     CommonModule,
     AdminRoutingModule,

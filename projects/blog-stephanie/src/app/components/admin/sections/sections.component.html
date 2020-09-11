@@ -1,1 +1,59 @@
-<p>sections works!</p>
+<div class="buscador">
+    <div class="row">
+        <div class="col-12">
+            <h3>
+                <i>Buscador</i>
+            </h3>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-2 text-right align-self-center">
+            <h5>Id:</h5>
+        </div>
+        <div class="col-3 text-left">
+            <input
+                  class="form-control"
+                  placeholder="Regular"
+                  type="text"
+                  value=""
+                />
+        </div>
+        <div class="col-2 text-right align-self-center">
+            <h5>Nombre:</h5>
+        </div>
+        <div class="col-3 text-left">
+            <input
+                  class="form-control"
+                  placeholder="Regular"
+                  type="text"
+                  value=""
+                />
+        </div>
+        <div class="col-2 justify-content-end">
+            <button class="btn btn-neutral btn-round" (click)="buscar()">Buscar</button>
+        </div>
+    </div>
+</div>
+<div class="table-section">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Country</th>
+          <th scope="col">Area</th>
+          <th scope="col">Population</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let country of countries; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>
+            <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px">
+            {{ country.name }}
+          </td>
+          <td>{{ country.area | number }}</td>
+          <td>{{ country.population | number }}</td>
+        </tr>
+        </tbody>
+      </table>
+</div>

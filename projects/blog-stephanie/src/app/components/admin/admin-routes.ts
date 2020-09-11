@@ -4,6 +4,8 @@ import { SectionsComponent } from './sections/sections.component';
 import { PublicationsComponent } from './publications/publications.component';
 import { OthersComponent } from './others/others.component';
 import { NgModule } from '@angular/core';
+import { UsersComponent } from './users/users.component';
+import { InformationComponent } from './information/information.component';
 
 const routes : Routes = [
     {
@@ -18,6 +20,12 @@ const routes : Routes = [
             },
             {
                 path : 'others', component : OthersComponent,
+            },
+            {
+                path : 'users', component : UsersComponent,
+            },
+            {
+                path : 'information', component : InformationComponent,
             }
         ]
     }

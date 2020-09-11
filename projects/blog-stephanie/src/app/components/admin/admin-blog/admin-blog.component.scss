@@ -1,10 +1,15 @@
 .page-header-block{
-  margin-top: 16vh !important;
+  margin-top: 18vh !important;
 }
 
 .adjust-bar{
   background-color: #490f82;
   border-top-right-radius: 10%;
   border-bottom-right-radius: 10%;
-  padding-left: 5%;
+  padding-left: 2%;
+  max-width: 13.5%;
+}
+
+.ptr{
+  cursor: pointer;
 }

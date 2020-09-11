@@ -7,28 +7,45 @@
                 </i>
             </h3>
             <hr />
-            <div class="row align-middle">
-                <a><h4>Secciones</h4></a>
+            <div class="row text-right ">
+                <a class="nav-link ptr col-10" (click)="navigate(['sections'])" placement="bottom"
+                    tooltip="Administrar Secciones">
+                    <h4>Secciones</h4>
+                </a>
             </div>
-            <div class="row align-middle">
-                <a><h4>Publicaciones</h4></a>
+            <div class="row text-right">
+                <a class="nav-link ptr col-10" (click)="navigate(['publications'])" placement="bottom"
+                    tooltip="Administrar publicaciones">
+                    <h4>Publicaciones</h4>
+                </a>
             </div>
-            <div class="row align-middle">
-                <a><h4>Otras</h4></a>
+            <div class="row text-right">
+                <a class="nav-link ptr col-10" (click)="navigate(['others'])" placement="bottom"
+                    tooltip="Administrar publicaciones">
+                    <h4>Otras</h4>
+                </a>
             </div>
-            <div class="row align-middle">
-                <a><h4>Usuarios</h4></a>
+            <div class="row text-right">
+                <a class="nav-link ptr col-10" (click)="navigate(['users'])" placement="bottom"
+                    tooltip="Administrar Secciones">
+                    <h4>Usuarios</h4>
+                </a>
             </div>
-            <div class="row align-middle">
-                <a><h4>información</h4></a>
+            <div class="row text-right">
+                <a class="nav-link ptr col-10" (click)="navigate(['information'])" placement="bottom"
+                    tooltip="Administrar Secciones">
+                    <h4>información</h4>
+                </a>
             </div>
         </div>
-        <div class="col-9 header-blog ml-3">
+        <div class="col-10 header-blog ml-3">
             <div class="row">
                 <h1> Administrar Blog</h1>
             </div>
-            <div class="row">
-                <router-outlet></router-outlet>
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <router-outlet></router-outlet>
+                </div>
             </div>
         </div>
     </div>
