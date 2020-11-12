@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AdminBlogComponent implements OnInit {
 
-  constructor(private _router:Router) {
+  constructor(private _router:Router, public translate: TranslateService) {
   }
 
   ngOnInit(): void {

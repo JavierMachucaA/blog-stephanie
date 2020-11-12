@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { Section } from '../../../commons/dto/section.dto';
+import { SectionService } from '../services/section.service';
 interface Country {
   name: string;
   flag: string;
@@ -41,17 +44,47 @@ const COUNTRIES: Country[] = [
 export class SectionsComponent implements OnInit {
 
   countries = COUNTRIES;
+  public displayColumns = [];
+  public data = [];
+  public PREFIX = 'admin.section.table.columns.';
 
-  constructor() { }
+  constructor(private _sectionService: SectionService, private _translate: TranslateService) {
+  }
 
   ngOnInit(): void {
+
+    /**/
+    let a : any= this._translate.store;
+    console.log(a);
+     a = this._translate.currentLang;
+     console.log(a);
+    
+    this._translate.use('en').subscribe(() => { 
+      this._sectionService.getSections().subscribe(
+        (response: Section[] ) =>
+        {
+          let columns = [];
+          this.data = response;
+          for (const attribute in this.data[0]) {
+            let column = this._translate.instant(this.PREFIX+attribute);
+            columns.push(column);
+          }
+          this.displayColumns = [...columns];
+          console.log(columns);
+          
+        },
+        (error: any) => this.handlerError(error)
+        );
+    });
+
+
   }
 
   public buscar() {
     console.log("buscando");
-    
   }
 
-  
-
+  private handlerError(error: any) {
+    console.log('error:', error);
+  }
 }

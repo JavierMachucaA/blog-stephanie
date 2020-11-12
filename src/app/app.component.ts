@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   constructor(
     private renderer: Renderer2,
     public location: Location,
-    @Inject(DOCUMENT) document
+    @Inject(DOCUMENT) document,
   ) {}
   @HostListener("window:scroll", ["$event"])
   onWindowScroll(e) {

@@ -8,7 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 // import { HomeComponent } from './components/home/home.component';
@@ -25,6 +25,9 @@ import { HomeComponent } from './components/home/home.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { LoginComponent } from './components/login/login.component';
 import { AdminModule } from './components/admin/admin.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 export function getToken(): string {
   let a = JSON.parse(localStorage.getItem('token')) ;
@@ -61,14 +64,38 @@ export function getToken(): string {
       config: {
           tokenGetter: getToken
       }
-    })
+    }),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoader,
+        deps: [HttpClient]
+      }
+    }),
+    NgbModule,
   ],
   providers: [
     AuthenticationService,
     JwtHelperService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[TranslateModule,]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(
+    public translate: TranslateService
+  ) {
+    translate.addLangs(['en']);
+    translate.setDefaultLang('en');
+  }
+
+  switchLang(lang: string) {
+    this.translate.use(lang);
+  }
+}
+
+export function httpTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 

@@ -7,6 +7,9 @@ import { AdminRoutingModule } from './admin-routes';
 import { AdminBlogComponent } from './admin-blog/admin-blog.component';
 import { InformationComponent } from './information/information.component';
 import { UsersComponent } from './users/users.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -21,6 +24,11 @@ import { UsersComponent } from './users/users.component';
   imports: [
     CommonModule,
     AdminRoutingModule,
+    HttpClientModule,
+    NgbModule,
+    TranslateModule
   ],
+  providers: [ HttpClientModule,],
 })
-export class AdminModule { }
+export class AdminModule {
+ }

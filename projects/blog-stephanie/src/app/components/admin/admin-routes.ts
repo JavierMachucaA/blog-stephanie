@@ -8,6 +8,7 @@ import { UsersComponent } from './users/users.component';
 import { InformationComponent } from './information/information.component';
 
 const routes : Routes = [
+    { path: '', redirectTo: 'admin' , pathMatch:'full'},
     {
         path: 'admin', 
         component: AdminBlogComponent, 

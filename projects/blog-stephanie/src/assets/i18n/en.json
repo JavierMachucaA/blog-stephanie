@@ -1,0 +1,13 @@
+{
+    "a":"asdksadasdsa",
+    "app":{
+        "a":"asdksadasdsa"
+        
+    },
+    "admin":{
+        "section.table.columns.id":"#",
+        "section.table.columns.name":"Número de Publicaciones",
+        "section.table.columns.despcription":"Número de Publicaciones",
+        "section.table.columns.countPostOfSection":"Número de Publicaciones"
+    }
+}
